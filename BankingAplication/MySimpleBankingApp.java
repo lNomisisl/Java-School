@@ -1,4 +1,4 @@
-                         package BankingAplication;
+                    package BankingAplication;
 
                          import java.io.File;
                          import java.io.FileNotFoundException;
@@ -33,12 +33,7 @@
                          
                              public static void main(String[] args) throws FileNotFoundException {
                          
-                                 // we are calling this method first to load data
-                                 // do not remove this
-                                init();
-                            
-                                 
-                                
+                                    
                                  char userChoice ;
 
                                 boolean quit = false;
@@ -76,7 +71,7 @@
                                      switch (userChoice) {
 
                                      case 'A':
-                                           System.out.println("Your balance: Euro" + balance );
+                                           System.out.println("Your balance: " + balance + "Euro");
                                            File file = new File("C:\\Users\\Simon Grech\\Downloads\\captmidn.txt");
                                             Scanner scan = new Scanner(file);
                                             System.out.println("Transaction History: ");
@@ -96,7 +91,7 @@
                                            System.out.println("Withdrawal can't be completed.");
                                            else {
                                            balance -= AmountSent;
-                                           System.out.println("Euro" + AmountSent + " has been withdrawn.");
+                                           System.out.println(+ AmountSent + "Euro" + " has been withdrawn.");
                                            }
                                            break;
 
@@ -108,7 +103,7 @@
                                            ExpirationDate = Keyboard.readString();
                                            System.out.println("Please enter the security code:");
                                            SecurityCode = Keyboard.readDouble();
-                                           System.out.println("Great. Now enter the amount you wish to add: €" );
+                                           System.out.println("Great. Now enter the amount you wish to add:" );
                                            AmountToAdd = Keyboard.readDouble();
                                            if (AmountToAdd <= 0)
                                            System.out.println("Can't deposit a negitive amount.");
@@ -116,7 +111,7 @@
                                           balance += AmountToAdd;
                                            System.out.println("Euro" + AmountToAdd + " has been added to your balance.");
                                            }
-                                           System.out.println("Your updated balance is: Euro" + balance);
+                                           System.out.println("Your updated balance is: " + balance + "Euro");
                                            break;
 
                                      case 'D':
@@ -133,32 +128,9 @@
                                } while (!quit);
                    
                                System.out.println("Bye!");     
-                            }       
-
-                             
-                         
-                             /**
-                              * an advanced function written by Ms C to read data from a file and store it into transactions
-                              */
-                             public static void init() {
-                                 // make sure you have a text file
-                                 File file = new File("lessons\\src\\yr12assignment", "MySimpleTransactions.txt");
-                                 if (file.exists()) {
-                                     int lines;
-                                     try (Stream<String> stream = Files.lines(file.toPath(), StandardCharsets.UTF_8)) {
-                                         lines = (int) stream.count();
-                                         stream.close();
-                                         if (lines > 0) {
-                                             Scanner fileScan = new Scanner(file);
-                                             for (int i = 0; i < lines; i++) {
-                                                 transactions[i] = fileScan.nextLine();
-                                             }
-                                             fileScan.close();
-                                         }
-                                     } catch (IOException e) {
-                                         System.out.println("Err: Did not manage to load data.");
-                                     }
+                            
                                  }
                              }
-                         }
                          
+                        
+
